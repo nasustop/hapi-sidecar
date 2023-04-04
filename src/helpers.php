@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 if (! function_exists('mongo')) {
     /**
-     * 获取memcached连接.
+     * 获取mongo边车服务连接.
      */
     function mongo(string $pool = 'default'): Nasustop\HapiSidecar\Example\mongo\php\MongoProxy
     {
