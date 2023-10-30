@@ -38,15 +38,17 @@ class ConfigProvider
         ];
     }
 
-    public static function sidecar_address(string $path): string
+    public static function sidecar_address(string $path, bool $unique = true): string
     {
         $root = BASE_PATH . '/runtime/sidecar/' . $path;
         if (! is_dir($root)) {
             mkdir($root, 0755, true);
         }
 
-        $appName = env('APP_NAME');
-        $executable = $appName . '_' . uniqid();
+        $executable = $appName = env('APP_NAME');
+        if ($unique) {
+            $executable = $appName . '_' . uniqid();
+        }
         return $root . '/' . $executable;
     }
 }
