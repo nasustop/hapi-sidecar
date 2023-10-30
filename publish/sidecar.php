@@ -15,7 +15,7 @@ return [
         'build' => true,
         'build_work_dir' => BASE_PATH . '/vendor/nasustop/hapi-sidecar/example/demo',
         'build_command' => 'cmd/server.go',
-        'executable' => \Nasustop\HapiSidecar\ConfigProvider::sidecar_address('demo'),
+        'executable' => \Nasustop\HapiSidecar\ConfigProvider::sidecar_address('demo', false),
         'socket_address' => \Nasustop\HapiSidecar\ConfigProvider::sidecar_address('demo') . '.sock',
         'pool' => [
             'min_connections' => swoole_cpu_num(),
@@ -31,7 +31,7 @@ return [
         'build' => true,
         'build_work_dir' => BASE_PATH . '/vendor/nasustop/hapi-sidecar/example/mongo',
         'build_command' => 'cmd/server.go',
-        'executable' => \Nasustop\HapiSidecar\ConfigProvider::sidecar_address('mongo'),
+        'executable' => \Nasustop\HapiSidecar\ConfigProvider::sidecar_address('mongo', false),
         'socket_address' => \Nasustop\HapiSidecar\ConfigProvider::sidecar_address('mongo') . '.sock',
         'host' => env('MONGO_HOST', 'localhost'),
         'port' => (int) env('MONGO_PORT', 27017),
