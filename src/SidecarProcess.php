@@ -34,7 +34,7 @@ abstract class SidecarProcess extends AbstractProcess
 
     public function bind($server): void
     {
-        if ($this->config['build'] ?? false) {
+        if (($this->config['build'] ?? false) && ! is_file($this->config['executable'])) {
             if (! is_dir($this->config['build_work_dir'])) {
                 mkdir($this->config['build_work_dir']);
             }
